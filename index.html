@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computer Graphics</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="sketch.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.css" rel="stylesheet">
+  <style>
+    canvas {
+      margin: auto;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- title : Circle Drawing algorithm -->
+  <div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center md\:text-center">
+        <h2 class="text-base text-5xl text-indigo-600 font-bold tracking-wide uppercase">1.</h2>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Circle Drawing
+          algorithm</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Please enter the radius of the circle</p>
+      </div>
+      <div class="">
+        <form class="flex flex-row mx-auto p-4 place-content-center ">
+          <input id="radius" type="number"
+            class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white focus:ring-red-200 focus:outline-none focus:ring-2"
+            placeholder="Radius ( upto 90 ) in px" />
+          <button id="drawCircle" type='button'
+            class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r focus:outline-none ">Draw</button>
+        </form>
+      </div>
+      <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2">
+        <label class="inline-flex items-center mt-3">
+          <input type="checkbox" class="form-check-input form-checkbox h-5 w-5 text-teal-600" id="enableLines"
+            checked><span class="ml-2 text-gray-700">Draw with Inner lines</span>
+        </label>
+        <div>
+          <div class="relative ">
+            <label class="form-label" id="framerateLabel">Framerate: 15</label>
+            <input type="range" class="
+                form-range
+                appearance-none
+                w-full
+                h-2
+                p-0
+                bg-gray-200
+                rounded-2xl
+                focus:outline-none focus:ring-0 focus:shadow-none
+              " min="5" max="60" value="15" id="framerate" />
+            <div class="absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6">5</div>
+            <div class="absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6">60</div>
+          </div>
+
+        </div>
+        <div>
+          <div class="relative ">
+            <label class="form-label" id="resolutionLabel">Resolution : 2</label>
+            <input type="range" class="
+                form-range
+                appearance-none
+                w-full
+                h-2
+                p-0
+                bg-gray-200
+                rounded-2xl
+                focus:outline-none focus:ring-0 focus:shadow-none
+              " min="1" max="10" value="2" id="resolution" />
+            <div class="absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6">1</div>
+            <div class="absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6">1/10</div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="pb-10">
+      </div>
+    </div>
+    <!-- <button id="btn" type='button'
+    class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r focus:outline-none ">Draw</button> -->
+    <div class="grid gap-4 lg:grid-cols-2 md:grid-cols-1 ">
+      <Div id="circles" class="container  body-font justify-center mx-auto items-center ">
+
+      </Div>
+      <div class="flex-grow overflow-auto " style="height: 600px;" id="scrollContainer">
+
+        <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200" id="cTable">
+          <thead class="relative text-left border-b border-gray-300">
+            <th class="sticky top-0 px-4 py-3 bg-gray-800 rounded-t-lg">K</th>
+            <th class="sticky top-0 px-4 py-3 bg-gray-800 rounded-t-lg">P<sub>k</sub></th>
+            <th class="sticky top-0 px-4 py-3 bg-gray-800 rounded-t-lg">X <sub>k+1</sub></th>
+            <th class="sticky top-0 px-4 py-3 bg-gray-800 rounded-t-lg">Y <sub>k+1</sub></th>
+          </thead>
+          <tbody class="bg-gray-700 border-b border-gray-600" id="tableBody">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- <Div id="circleCanvas2" class="container  body-font justify-center mx-auto items-center"> -->
+
+  </Div>
+</body>
+
+</html>
