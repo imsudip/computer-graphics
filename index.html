@@ -7,6 +7,7 @@
   <title>Computer Graphics</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   <script src="sketch.js"></script>
+  <script src="dda.js"></script>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.css" rel="stylesheet">
   <style>
     canvas {
@@ -82,8 +83,6 @@
       <div class="pb-10">
       </div>
     </div>
-    <!-- <button id="btn" type='button'
-    class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r focus:outline-none ">Draw</button> -->
     <div class="grid gap-4 lg:grid-cols-2 md:grid-cols-1 ">
       <Div id="circles" class="container  body-font justify-center mx-auto items-center ">
 
@@ -103,10 +102,88 @@
         </table>
       </div>
     </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center md\:text-center">
+        <h2 class="text-base text-5xl text-indigo-600 font-bold tracking-wide uppercase">2.</h2>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Line Drawing
+          algorithm</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Please enter the coordinates of two points</p>
+      </div>
+      <!-- tabs -->
+      <!-- <div class="flex items-center justify-center h-16">
+        <div class="inline-flex shadow-md rounded-lg hover:shadow-lg focus:shadow-lg h-10" role="group">
+          <button type="button"
+            class="active rounded-l-lg px-6 py-2 border-t mr-0 border-b border-l  border-yellow-400  text-black font-medium text-sm leading-tight uppercase active:bg-yellow-400 hover:bg-yellow-400 focus:outline-none transition duration-150 ease-in-out ">DDA</button>
+          <button type="button"
+            class="rounded-r-lg px-6 py-2 border-t mr-0 border-b border-r  border-yellow-400  text-black font-medium text-sm leading-tight uppercase active:bg-yellow-400 hover:bg-yellow-400 focus:outline-none   transition duration-150 ease-in-out">Bresenham's</button>
 
-    <!-- <Div id="circleCanvas2" class="container  body-font justify-center mx-auto items-center"> -->
+        </div>
+      </div> -->
+      <!-- Input of X1 y1 x1 y2 -->
+      <form class="grid gap-4 grid-cols-4 justify-center lg:px-40 md:px-16 sm:px-10">
+        <div class="">
+          <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2 pl-2" for="grid-first-name">
+            X<sub>1</sub>
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="x1" type="text" placeholder="X1">
+          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+        </div>
+        <div class=" ">
+          <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2 pl-2" for="grid-last-name">
+            Y<sub>1</sub>
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="y1" type="text" placeholder="Y1">
+        </div>
+        <div class="">
+          <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2 pl-2" for="grid-first-name">
+            X<sub>2</sub>
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="x2" type="text" placeholder="X2">
+          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+        </div>
+        <div class=" ">
+          <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2 pl-2" for="grid-last-name">
+            Y<sub>2</sub>
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="y2" type="text" placeholder="Y1">
+        </div>
+      </form>
+      <!-- button -->
+      <form class="flex flex-row mx-auto p-4 place-content-center ">
+        <button id="drawLine" type='button'
+          class="px-8 rounded-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r focus:outline-none ">Draw</button>
+      </form>
+      <!--  -->
+      <div class="grid gap-4 lg:grid-cols-2 md:grid-cols-1 ">
+        <Div id="dda" class="container  body-font justify-center mx-auto items-center ">
 
-  </Div>
+        </Div>
+        <div class="flex-grow overflow-auto " style="height: 600px;" id="scrollContainer2">
+
+          <table class="rounded-t-lg m-5 w-3/6 mx-auto bg-gray-800 text-gray-200" id="lTable">
+            <thead class="relative text-left border-b border-gray-300">
+              <th class="sticky top-0 px-4 py-3 bg-gray-800 rounded-t-lg">K</th>
+              <th class="sticky top-0 px-4 py-3 bg-gray-800 rounded-t-lg">( X<sub>k</sub> , Y<sub>k</sub> )</th>
+
+            </thead>
+            <tbody class="bg-gray-700 border-b border-gray-600" id="tableBody">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- <Div id="circleCanvas2" class="container  body-font justify-center mx-auto items-center"> -->
+
+    </Div>
 </body>
 
 </html>

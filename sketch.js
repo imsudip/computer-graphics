@@ -149,10 +149,27 @@ var sketch = function (p) {
       p.getNewPoint(-b, a);
       p.stroke('black');
       p.getNewPoint(-b, -a);
+    } else {
+      p.strokeWeight(1);
+      p.stroke('#C0C0C0');
+      p.line(0, 310, 0, -310);
+      p.line(310, 0, -310, 0);
+      p.triangle(-5, 295, 0, 305, 5, 295);
+      p.triangle(-5, -295, 0, -305, 5, -295);
+      p.triangle(295, -5, 305, 0, 295, 5);
+      p.triangle(-295, -5, -305, 0, -295, 5);
+
+      for (let i = -p.maxRadius; i <= p.maxRadius; i += 10) {
+        p.line(i * p.resolution, 3, i * p.resolution, -3);
+      }
+      for (let i = -p.maxRadius; i <= p.maxRadius; i += 10) {
+        p.line(3, i * p.resolution, -3, i * p.resolution);
+      }
+
     }
 
   }
 }
 
 var myp5 = new p5(sketch, 'circles');
-// var myp51 = new p5(sketch, document.getElementById('circleCanvas2'));
+
